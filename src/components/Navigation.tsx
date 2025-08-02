@@ -30,38 +30,38 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
   ];
 
   return (
-    <nav className="bg-card border-r border-border p-4 w-64 h-screen flex flex-col">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+    <nav className="bg-white/20 backdrop-blur-md border-r border-white/10 p-6 w-72 h-screen flex flex-col">
+      <div className="mb-12 text-center">
+        <h1 className="text-3xl font-light text-foreground mb-2">
           Loop
         </h1>
-        <p className="text-muted-foreground text-sm mt-1">Mindful CRM</p>
+        <p className="text-muted-foreground text-sm">Mindful CRM</p>
       </div>
       
-      <div className="flex-1 space-y-2">
+      <div className="flex-1 space-y-3">
         {navigationItems.map((item) => {
           const Icon = item.icon;
           return (
             <Button
               key={item.id}
-              variant={activeTab === item.id ? "default" : "ghost"}
+              variant="ghost"
               className={cn(
-                "w-full justify-start gap-3 h-11 transition-all duration-200",
+                "w-full justify-start gap-4 h-12 transition-all duration-300 font-light text-base rounded-xl",
                 activeTab === item.id 
-                  ? "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground shadow-md" 
-                  : "hover:bg-secondary text-muted-foreground hover:text-foreground"
+                  ? "bg-warm text-white shadow-soft" 
+                  : "hover:bg-white/30 text-muted-foreground hover:text-foreground"
               )}
               onClick={() => onTabChange(item.id)}
             >
-              <Icon className="h-4 w-4" />
+              <Icon className="h-5 w-5" />
               {item.label}
             </Button>
           );
         })}
       </div>
       
-      <div className="mt-auto pt-4 border-t border-border">
-        <div className="text-xs text-muted-foreground text-center">
+      <div className="mt-auto pt-6 border-t border-white/10">
+        <div className="text-sm text-muted-foreground text-center font-light">
           Building meaningful connections
         </div>
       </div>

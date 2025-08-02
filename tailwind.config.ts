@@ -61,6 +61,12 @@ export default {
 					DEFAULT: 'hsl(var(--warm))',
 					foreground: 'hsl(var(--warm-foreground))'
 				},
+				peach: {
+					DEFAULT: 'hsl(var(--peach))'
+				},
+				coral: {
+					DEFAULT: 'hsl(var(--coral))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

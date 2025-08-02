@@ -36,161 +36,129 @@ const Dashboard = () => {
   const mindfulMoment = "Take a moment to appreciate the relationships you're building today. Each connection is an opportunity to make a positive impact.";
 
   return (
-    <div className="p-6 space-y-6 animate-fade-in">
-      {/* Welcome Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">
-          {getGreeting()}, Alex 👋
+    <div className="min-h-screen p-8 space-y-12">
+      {/* Hero Welcome Section */}
+      <div className="text-center max-w-4xl mx-auto py-16">
+        <h1 className="text-6xl md:text-7xl font-light text-foreground mb-6 leading-tight">
+          Take back your time.
+          <br />
+          <span className="text-warm">It's yours.</span>
         </h1>
-        <p className="text-muted-foreground text-lg">
-          Ready to nurture meaningful relationships today?
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Loop is private only. It's where you can focus on relationships & be 
+          yourself.
         </p>
+        
+        <div className="mt-12 space-y-3 text-lg text-muted-foreground">
+          <div>NO vanity metrics</div>
+          <div>NO social pressure</div>
+          <div>NO tracking</div>
+          <div>NO distractions</div>
+          <div>NO fake connections</div>
+          <div>NO ads</div>
+        </div>
+        
+        <Button 
+          size="lg" 
+          className="mt-12 px-12 py-4 text-lg bg-warm hover:bg-warm/90 text-white rounded-full font-medium"
+        >
+          I UNDERSTAND
+        </Button>
       </div>
 
       {/* Mindful Moment */}
-      <Card className="bg-gradient-to-r from-warm/10 to-accent/10 border-warm/20">
-        <CardHeader className="pb-3">
-          <div className="flex items-center gap-2">
-            <Heart className="h-5 w-5 text-warm animate-float" />
-            <CardTitle className="text-lg text-warm-foreground">Mindful Moment</CardTitle>
+      <Card className="bg-white/60 backdrop-blur-sm border-0 shadow-elegant max-w-3xl mx-auto">
+        <CardHeader className="pb-4">
+          <div className="flex items-center justify-center gap-3">
+            <Heart className="h-6 w-6 text-warm animate-float" />
+            <CardTitle className="text-2xl font-light text-foreground">Mindful Moment</CardTitle>
           </div>
         </CardHeader>
-        <CardContent>
-          <p className="text-warm-foreground/80 italic">{mindfulMoment}</p>
+        <CardContent className="text-center">
+          <p className="text-lg text-muted-foreground leading-relaxed italic">{mindfulMoment}</p>
         </CardContent>
       </Card>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, index) => {
-          const Icon = stat.icon;
-          return (
-            <Card key={stat.label} className="hover:shadow-lg transition-all duration-200">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">
-                  {stat.label}
-                </CardTitle>
-                <Icon className={`h-4 w-4 ${stat.color}`} />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-              </CardContent>
-            </Card>
-          );
-        })}
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <Card key={stat.label} className="bg-white/40 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 text-center">
+                <CardHeader className="space-y-4 pb-4">
+                  <Icon className={`h-8 w-8 mx-auto ${stat.color}`} />
+                  <CardTitle className="text-lg font-light text-muted-foreground">
+                    {stat.label}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-4xl font-light text-foreground">{stat.value}</div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Main Content - Simplified */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Recent Actions */}
-        <Card>
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle className="flex items-center gap-2">
-                  <CheckSquare className="h-5 w-5 text-primary" />
-                  Recent Actions
-                </CardTitle>
-                <CardDescription>Stay on top of your relationship-building tasks</CardDescription>
-              </div>
-              <Button size="sm" className="gap-2">
-                <Plus className="h-4 w-4" />
-                Add Action
-              </Button>
-            </div>
+        <Card className="bg-white/40 backdrop-blur-sm border-0 shadow-soft">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl font-light text-foreground flex items-center justify-center gap-3">
+              <CheckSquare className="h-6 w-6 text-warm" />
+              Recent Actions
+            </CardTitle>
+            <CardDescription className="text-lg">Stay mindful of your relationship tasks</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-6">
             {recentActions.map((action, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-medium text-foreground">{action.type}</span>
-                    <Badge 
-                      variant={action.priority === 'high' ? 'destructive' : action.priority === 'medium' ? 'default' : 'secondary'}
-                      className="text-xs"
-                    >
-                      {action.priority}
-                    </Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{action.contact}</p>
-                  <p className="text-xs text-muted-foreground">{action.time}</p>
+              <div key={index} className="p-6 bg-white/60 rounded-2xl border-0">
+                <div className="text-center space-y-2">
+                  <div className="text-lg font-light text-foreground">{action.type}</div>
+                  <div className="text-muted-foreground">{action.contact}</div>
+                  <div className="text-sm text-muted-foreground">{action.time}</div>
+                  <Badge 
+                    variant={action.priority === 'high' ? 'destructive' : 'secondary'}
+                    className="mt-2"
+                  >
+                    {action.priority}
+                  </Badge>
                 </div>
-                <Button variant="ghost" size="sm">Complete</Button>
               </div>
             ))}
           </CardContent>
         </Card>
 
-        {/* Goal Progress */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Target className="h-5 w-5 text-success" />
-              This Month's Goals
-            </CardTitle>
-            <CardDescription>Building stronger relationships, one step at a time</CardDescription>
+        {/* Quick Actions */}
+        <Card className="bg-white/40 backdrop-blur-sm border-0 shadow-soft">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl font-light text-foreground">Mindful Actions</CardTitle>
+            <CardDescription className="text-lg">Take intentional steps today</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">Connect with 20 new prospects</span>
-                <span className="text-sm text-muted-foreground">15/20</span>
-              </div>
-              <div className="w-full bg-muted rounded-full h-2">
-                <div className="bg-gradient-to-r from-success to-primary h-2 rounded-full" style={{ width: '75%' }}></div>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">Follow up with warm leads</span>
-                <span className="text-sm text-muted-foreground">8/12</span>
-              </div>
-              <div className="w-full bg-muted rounded-full h-2">
-                <div className="bg-gradient-to-r from-warm to-accent h-2 rounded-full" style={{ width: '66%' }}></div>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">Schedule client appreciation calls</span>
-                <span className="text-sm text-muted-foreground">3/5</span>
-              </div>
-              <div className="w-full bg-muted rounded-full h-2">
-                <div className="bg-gradient-to-r from-primary to-primary-glow h-2 rounded-full" style={{ width: '60%' }}></div>
-              </div>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-6">
+              <Button variant="ghost" className="h-24 flex flex-col gap-3 bg-white/60 hover:bg-white/80 border-0 rounded-2xl">
+                <Users className="h-8 w-8 text-warm" />
+                <span className="font-light">Add Contact</span>
+              </Button>
+              <Button variant="ghost" className="h-24 flex flex-col gap-3 bg-white/60 hover:bg-white/80 border-0 rounded-2xl">
+                <Calendar className="h-8 w-8 text-warm" />
+                <span className="font-light">Schedule Call</span>
+              </Button>
+              <Button variant="ghost" className="h-24 flex flex-col gap-3 bg-white/60 hover:bg-white/80 border-0 rounded-2xl">
+                <Target className="h-8 w-8 text-warm" />
+                <span className="font-light">Set Goal</span>
+              </Button>
+              <Button variant="ghost" className="h-24 flex flex-col gap-3 bg-white/60 hover:bg-white/80 border-0 rounded-2xl">
+                <Heart className="h-8 w-8 text-warm" />
+                <span className="font-light">Mindfulness</span>
+              </Button>
             </div>
           </CardContent>
         </Card>
       </div>
-
-      {/* Quick Actions */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Quick Actions</CardTitle>
-          <CardDescription>Jump into your most important tasks</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Button variant="outline" className="h-20 flex flex-col gap-2">
-              <Users className="h-6 w-6" />
-              <span className="text-sm">Add Contact</span>
-            </Button>
-            <Button variant="outline" className="h-20 flex flex-col gap-2">
-              <Calendar className="h-6 w-6" />
-              <span className="text-sm">Schedule Call</span>
-            </Button>
-            <Button variant="outline" className="h-20 flex flex-col gap-2">
-              <CheckSquare className="h-6 w-6" />
-              <span className="text-sm">Add Action</span>
-            </Button>
-            <Button variant="outline" className="h-20 flex flex-col gap-2">
-              <Star className="h-6 w-6" />
-              <span className="text-sm">Set Goal</span>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 };
