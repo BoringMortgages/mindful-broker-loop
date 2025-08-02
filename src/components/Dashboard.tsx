@@ -51,7 +51,7 @@ const Dashboard = () => {
       {/* Hero Welcome Section */}
       <div className="text-center max-w-4xl mx-auto py-16">
         <h1 className="text-6xl md:text-7xl font-light text-foreground mb-6 leading-tight">
-          Take back your time.
+          Everything comes full circle.
           <br />
           <span className="text-warm">It's yours.</span>
         </h1>
