@@ -32,12 +32,12 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
   ];
 
   return (
-    <nav className="bg-white/20 backdrop-blur-md border-r border-white/10 p-6 w-72 h-screen flex flex-col">
-      <div className="mb-12 text-center">
-        <h1 className="text-3xl font-light text-foreground mb-2">
+    <nav className="bg-gradient-glass backdrop-blur-[24px] border-r border-border/20 p-8 w-80 h-screen flex flex-col shadow-glass-lg">
+      <div className="mb-16 text-center">
+        <h1 className="text-4xl font-extralight text-foreground mb-3 tracking-wide bg-gradient-to-r from-glass-primary to-glass-warm bg-clip-text text-transparent">
           Loop
         </h1>
-        <p className="text-muted-foreground text-sm">Mindful CRM</p>
+        <p className="text-muted-foreground text-sm font-light tracking-wide">Mindful CRM</p>
       </div>
       
       <div className="flex-1 space-y-3">
@@ -48,34 +48,40 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
               key={item.id}
               variant="ghost"
               className={cn(
-                "w-full justify-start gap-4 h-12 transition-all duration-300 font-light text-base rounded-xl relative overflow-hidden group",
+                "w-full justify-start gap-5 h-14 transition-all duration-700 font-light text-base rounded-2xl relative overflow-hidden group border",
                 activeTab === item.id 
-                  ? "bg-gradient-to-br from-warm/20 to-warm/10 backdrop-blur-xl border border-white/20 shadow-2xl text-white" 
-                  : "hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 hover:backdrop-blur-xl hover:border hover:border-white/20 text-muted-foreground hover:text-foreground"
+                  ? "bg-gradient-glass backdrop-blur-[20px] border-border/30 shadow-glass-lg text-foreground" 
+                  : "hover:bg-gradient-glass hover:backdrop-blur-[16px] hover:border-border/20 hover:shadow-glass text-muted-foreground hover:text-foreground border-transparent"
               )}
               onClick={() => onTabChange(item.id)}
             >
               {activeTab === item.id && (
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-glass-primary/10 to-glass-warm/5"></div>
               )}
-              <div className="relative z-10 flex items-center gap-4">
+              {activeTab === item.id && (
+                <div className="absolute inset-0 rounded-2xl shadow-inner"></div>
+              )}
+              <div className="relative z-10 flex items-center gap-5">
                 <div className={cn(
-                  "w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300",
+                  "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-700 border relative overflow-hidden",
                   activeTab === item.id 
-                    ? "bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm" 
-                    : "group-hover:bg-gradient-to-br group-hover:from-white/10 group-hover:to-white/5"
+                    ? "bg-gradient-glass backdrop-blur-sm border-border/20 shadow-glass" 
+                    : "group-hover:bg-gradient-glass group-hover:backdrop-blur-sm group-hover:border-border/20 border-transparent"
                 )}>
-                  <Icon className="h-4 w-4" />
+                  {activeTab === item.id && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-glass-primary/15 to-glass-warm/8 rounded-xl"></div>
+                  )}
+                  <Icon className="h-5 w-5 relative z-10" />
                 </div>
-                {item.label}
+                <span className="font-light tracking-wide">{item.label}</span>
               </div>
             </Button>
           );
         })}
       </div>
       
-      <div className="mt-auto pt-6 border-t border-white/10">
-        <div className="text-sm text-muted-foreground text-center font-light">
+      <div className="mt-auto pt-8 border-t border-border/20">
+        <div className="text-sm text-muted-foreground text-center font-light tracking-wide">
           Building meaningful connections
         </div>
       </div>

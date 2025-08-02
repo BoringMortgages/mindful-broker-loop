@@ -8,57 +8,68 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 15%;
+    /* Liquid Glass Base Colors */
+    --background: 235 20% 98%;
+    --foreground: 235 15% 25%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    --card: 240 20% 99%;
+    --card-foreground: 235 15% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover: 240 20% 99%;
+    --popover-foreground: 235 15% 25%;
 
-    --primary: 15 85% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 260 80% 70%;
+    --primary-foreground: 240 20% 99%;
 
-    --secondary: 20 30% 95%;
-    --secondary-foreground: 0 0% 20%;
+    --secondary: 240 10% 96%;
+    --secondary-foreground: 235 15% 25%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 240 8% 94%;
+    --muted-foreground: 235 10% 50%;
 
-    --accent: 40 95% 85%;
-    --accent-foreground: 0 0% 20%;
+    --accent: 300 60% 75%;
+    --accent-foreground: 235 15% 25%;
 
     --destructive: 0 75% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 240 20% 99%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 94%;
-    --ring: 15 85% 60%;
+    --border: 240 12% 88%;
+    --input: 240 10% 92%;
+    --ring: 260 80% 70%;
 
-    --radius: 1rem;
+    --radius: 1.5rem;
 
-    /* Custom design tokens inspired by MyMind */
-    --primary-glow: 25 80% 70%;
-    --success: 150 60% 50%;
-    --success-foreground: 0 0% 100%;
-    --warm: 15 85% 60%;
-    --warm-foreground: 0 0% 100%;
-    --peach: 25 90% 85%;
-    --coral: 15 85% 60%;
+    /* Liquid Glass Design Tokens */
+    --glass-primary: 260 80% 70%;
+    --glass-secondary: 300 60% 75%;
+    --glass-accent: 200 70% 75%;
+    --glass-warm: 320 60% 75%;
+    --glass-cool: 200 70% 80%;
+    --success: 160 60% 65%;
+    --warm: 320 60% 75%;
     
-    /* Elegant gradients */
-    --gradient-hero: radial-gradient(ellipse at center, hsl(25 90% 95%), hsl(15 85% 92%), hsl(340 85% 90%));
-    --gradient-warm: linear-gradient(135deg, hsl(25 90% 85%), hsl(15 85% 75%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 98%), hsl(25 50% 96%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(25 30% 98%));
+    /* Liquid Glass Gradients */
+    --gradient-hero: radial-gradient(ellipse 100% 60% at 50% 0%, hsl(260 80% 70% / 0.08), transparent 50%), 
+                     radial-gradient(ellipse 80% 50% at 80% 100%, hsl(300 60% 75% / 0.06), transparent 50%),
+                     radial-gradient(ellipse 60% 40% at 20% 70%, hsl(200 70% 75% / 0.05), transparent 50%),
+                     linear-gradient(180deg, hsl(240 20% 99%), hsl(235 15% 97%));
+    --gradient-glass: linear-gradient(135deg, hsl(240 20% 99% / 0.95), hsl(240 20% 99% / 0.7));
+    --gradient-card: linear-gradient(135deg, hsl(240 20% 99% / 0.9), hsl(240 20% 99% / 0.6));
+    --gradient-warm: linear-gradient(135deg, hsl(320 60% 75% / 0.15), hsl(300 60% 75% / 0.08));
+    --gradient-cool: linear-gradient(135deg, hsl(200 70% 75% / 0.12), hsl(260 80% 70% / 0.06));
     
-    /* Soft shadows */
-    --shadow-soft: 0 8px 32px -8px hsl(15 85% 60% / 0.15);
-    --shadow-elegant: 0 20px 40px -12px hsl(25 90% 85% / 0.25);
+    /* Liquid Glass Shadows */
+    --shadow-glass: 0 8px 32px -4px hsl(235 15% 25% / 0.06), 
+                    0 2px 8px -2px hsl(235 15% 25% / 0.04);
+    --shadow-glass-lg: 0 16px 64px -8px hsl(235 15% 25% / 0.08), 
+                       0 4px 16px -4px hsl(235 15% 25% / 0.05);
+    --shadow-glass-xl: 0 24px 96px -12px hsl(235 15% 25% / 0.1), 
+                       0 8px 32px -8px hsl(235 15% 25% / 0.06);
+    --shadow-inner: inset 0 1px 0 hsl(240 20% 99% / 0.8);
     
-    /* Smooth transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Smooth Liquid Transitions */
+    --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-spring: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     --sidebar-background: 0 0% 98%;
 

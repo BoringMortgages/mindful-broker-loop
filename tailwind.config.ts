@@ -67,6 +67,11 @@ export default {
 				coral: {
 					DEFAULT: 'hsl(var(--coral))'
 				},
+				'glass-primary': 'hsl(var(--glass-primary))',
+				'glass-secondary': 'hsl(var(--glass-secondary))',
+				'glass-accent': 'hsl(var(--glass-accent))',
+				'glass-warm': 'hsl(var(--glass-warm))',
+				'glass-cool': 'hsl(var(--glass-cool))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -82,6 +87,17 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			backgroundImage: {
+				'gradient-glass': 'var(--gradient-glass)',
+				'gradient-warm': 'var(--gradient-warm)',
+				'gradient-cool': 'var(--gradient-cool)',
+			},
+			boxShadow: {
+				'glass': 'var(--shadow-glass)',
+				'glass-lg': 'var(--shadow-glass-lg)',
+				'glass-xl': 'var(--shadow-glass-xl)',
+				'inner': 'var(--shadow-inner)',
 			},
 			keyframes: {
 				'accordion-down': {
