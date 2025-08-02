@@ -24,7 +24,7 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
     { id: "contacts", label: "Contacts", icon: Users },
     { id: "actions", label: "Actions", icon: CheckSquare },
     { id: "goals", label: "Goals", icon: Target },
-    { id: "mindset", label: "Mindset", icon: Heart },
+    { id: "mindfulness", label: "Mindfulness", icon: Heart },
     { id: "ui-ideas", label: "UI Ideas", icon: Palette },
     { id: "calls", label: "Calls", icon: Phone },
     { id: "mail", label: "Mail", icon: Mail },
@@ -32,51 +32,43 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
   ];
 
   return (
-    <nav className="bg-white/20 backdrop-blur-md border-r border-white/10 p-6 w-72 h-screen flex flex-col">
-      <div className="mb-12 text-center">
-        <h1 className="text-3xl font-light text-foreground mb-2">
-          Loop
-        </h1>
-        <p className="text-muted-foreground text-sm">Mindful CRM</p>
-      </div>
-      
-      <div className="flex-1 space-y-3">
-        {navigationItems.map((item) => {
-          const Icon = item.icon;
-          return (
-            <Button
-              key={item.id}
-              variant="ghost"
-              className={cn(
-                "w-full justify-start gap-4 h-12 transition-all duration-300 font-light text-base rounded-xl relative overflow-hidden group",
-                activeTab === item.id 
-                  ? "bg-gradient-to-br from-warm/20 to-warm/10 backdrop-blur-xl border border-white/20 shadow-2xl text-white" 
-                  : "hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 hover:backdrop-blur-xl hover:border hover:border-white/20 text-muted-foreground hover:text-foreground"
-              )}
-              onClick={() => onTabChange(item.id)}
-            >
-              {activeTab === item.id && (
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-              )}
-              <div className="relative z-10 flex items-center gap-4">
-                <div className={cn(
-                  "w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300",
+    <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+      <div className="bg-glass/20 backdrop-blur-[32px] border border-white/10 rounded-[28px] p-3 shadow-glass-xl">
+        <div className="flex items-center gap-2">
+          {navigationItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.id}
+                className={cn(
+                  "relative w-14 h-14 rounded-[20px] flex items-center justify-center transition-all duration-500 ease-spring group overflow-hidden",
+                  "hover:scale-125 hover:-translate-y-2 transform-gpu",
                   activeTab === item.id 
-                    ? "bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm" 
-                    : "group-hover:bg-gradient-to-br group-hover:from-white/10 group-hover:to-white/5"
-                )}>
-                  <Icon className="h-4 w-4" />
+                    ? "bg-white/20 backdrop-blur-sm border border-white/20 shadow-glass" 
+                    : "hover:bg-white/10 hover:backdrop-blur-sm hover:border-white/10"
+                )}
+                onClick={() => onTabChange(item.id)}
+              >
+                {activeTab === item.id && (
+                  <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-glass-primary/20 to-glass-secondary/10"></div>
+                )}
+                <Icon className={cn(
+                  "h-6 w-6 relative z-10 transition-all duration-300",
+                  activeTab === item.id 
+                    ? "text-white drop-shadow-glass" 
+                    : "text-white/80 group-hover:text-white group-hover:drop-shadow-glass"
+                )} />
+                
+                {/* Tooltip */}
+                <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                  <div className="bg-glass/30 backdrop-blur-[20px] border border-white/20 rounded-xl px-3 py-1.5 shadow-glass">
+                    <span className="text-xs text-white/90 font-medium whitespace-nowrap">{item.label}</span>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-glass/30 rotate-45 border-r border-b border-white/20"></div>
+                  </div>
                 </div>
-                {item.label}
-              </div>
-            </Button>
-          );
-        })}
-      </div>
-      
-      <div className="mt-auto pt-6 border-t border-white/10">
-        <div className="text-sm text-muted-foreground text-center font-light">
-          Building meaningful connections
+              </button>
+            );
+          })}
         </div>
       </div>
     </nav>
