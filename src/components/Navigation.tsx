@@ -48,15 +48,27 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
               key={item.id}
               variant="ghost"
               className={cn(
-                "w-full justify-start gap-4 h-12 transition-all duration-300 font-light text-base rounded-xl",
+                "w-full justify-start gap-4 h-12 transition-all duration-300 font-light text-base rounded-xl relative overflow-hidden group",
                 activeTab === item.id 
-                  ? "bg-warm text-white shadow-soft" 
-                  : "hover:bg-white/30 text-muted-foreground hover:text-foreground"
+                  ? "bg-gradient-to-br from-warm/20 to-warm/10 backdrop-blur-xl border border-white/20 shadow-2xl text-white" 
+                  : "hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 hover:backdrop-blur-xl hover:border hover:border-white/20 text-muted-foreground hover:text-foreground"
               )}
               onClick={() => onTabChange(item.id)}
             >
-              <Icon className="h-5 w-5" />
-              {item.label}
+              {activeTab === item.id && (
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
+              )}
+              <div className="relative z-10 flex items-center gap-4">
+                <div className={cn(
+                  "w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300",
+                  activeTab === item.id 
+                    ? "bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm" 
+                    : "group-hover:bg-gradient-to-br group-hover:from-white/10 group-hover:to-white/5"
+                )}>
+                  <Icon className="h-4 w-4" />
+                </div>
+                {item.label}
+              </div>
             </Button>
           );
         })}

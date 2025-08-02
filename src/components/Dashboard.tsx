@@ -57,23 +57,27 @@ const Dashboard = () => {
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">This is your space to focus, find clarity in daily tasks, and develop achievable and measurable goals. Loop is your relationship building co-pilot.</p>
         
-        <Button size="lg" className="mt-12 px-12 py-4 text-lg bg-warm hover:bg-warm/90 text-white rounded-full font-medium">
-          SIGN IN
-        </Button>
+        <button className="mt-12 px-12 py-4 text-lg rounded-full font-medium transition-all duration-300 hover:scale-105 relative overflow-hidden group bg-gradient-to-br from-warm/20 to-warm/10 backdrop-blur-xl border border-white/20 shadow-2xl text-white hover:shadow-3xl">
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent"></div>
+          <span className="relative z-10">SIGN IN</span>
+        </button>
       </div>
 
       {/* Mindful Moment */}
-      <Card className="bg-white/60 backdrop-blur-sm border-0 shadow-elegant max-w-3xl mx-auto">
-        <CardHeader className="pb-4">
-          <div className="flex items-center justify-center gap-3">
-            <Heart className="h-6 w-6 text-warm animate-float" />
-            <CardTitle className="text-2xl font-light text-foreground">Mindful Moment</CardTitle>
+      <div className="relative max-w-3xl mx-auto">
+        <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+          <div className="relative z-10 p-8">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-warm/20 to-warm/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
+                <Heart className="h-6 w-6 text-warm animate-float" />
+              </div>
+              <h2 className="text-2xl font-light text-foreground">Mindful Moment</h2>
+            </div>
+            <p className="text-lg text-muted-foreground leading-relaxed italic text-center">{mindfulMoment}</p>
           </div>
-        </CardHeader>
-        <CardContent className="text-center">
-          <p className="text-lg text-muted-foreground leading-relaxed italic">{mindfulMoment}</p>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
     </div>;
 };
