@@ -8,7 +8,8 @@ import {
   Home,
   Phone,
   Mail,
-  Bell
+  Bell,
+  Palette
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -24,6 +25,7 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
     { id: "actions", label: "Actions", icon: CheckSquare },
     { id: "goals", label: "Goals", icon: Target },
     { id: "mindfulness", label: "Mindfulness", icon: Heart },
+    { id: "ui-ideas", label: "UI Ideas", icon: Palette },
     { id: "calls", label: "Calls", icon: Phone },
     { id: "mail", label: "Mail", icon: Mail },
     { id: "reminders", label: "Reminders", icon: Bell },

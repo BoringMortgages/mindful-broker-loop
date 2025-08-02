@@ -5,6 +5,7 @@ import Contacts from "@/components/Contacts";
 import Actions from "@/components/Actions";
 import Goals from "@/components/Goals";
 import Mindfulness from "@/components/Mindfulness";
+import UIIdeas from "@/components/UIIdeas";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -21,6 +22,8 @@ const Index = () => {
         return <Goals />;
       case "mindfulness":
         return <Mindfulness />;
+      case "ui-ideas":
+        return <UIIdeas />;
       case "calls":
         return <div className="p-6"><h1 className="text-2xl font-bold">Calls (Coming Soon)</h1></div>;
       case "mail":
