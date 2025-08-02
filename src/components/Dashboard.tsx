@@ -53,15 +53,14 @@ const Dashboard = () => {
         <h1 className="text-6xl md:text-7xl font-light text-foreground mb-6 leading-tight">
           Everything comes full circle.
           <br />
-          <span className="text-warm">It's yours.</span>
+          <span className="text-warm">get in the loop.</span>
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Everything comes full circle, so get in the Loop now.
-This is your space to focus, gain clarity, and set your goals to be achievable and measurable. Loop is your relationship building co-pilot.</p>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">This is your space to focus, find clarity in daily tasks, and develop achievable and measurable goals. Loop is your relationship building co-pilot. If you want to stay in the loop of business building, you'd better get out of the insanity loop of doing everything over and over.</p>
         
         <div className="mt-12 space-y-3 text-lg text-muted-foreground">
           <div>NO vanity metrics</div>
           <div>NO social pressure</div>
-          <div>NO tracking</div>
+          
           <div>NO distractions</div>
           <div>NO fake connections</div>
           <div>NO ads</div>
