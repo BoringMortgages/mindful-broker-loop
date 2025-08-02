@@ -33,7 +33,7 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
 
   return (
     <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-      <div className="bg-glass/20 backdrop-blur-[32px] border border-white/10 rounded-[28px] p-3 shadow-glass-xl">
+      <div className="bg-glass/40 backdrop-blur-[40px] border border-white/30 rounded-[28px] p-3 shadow-glass-xl shadow-black/20">
         <div className="flex items-center gap-2">
           {navigationItems.map((item) => {
             const Icon = item.icon;
@@ -44,8 +44,8 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
                   "relative w-14 h-14 rounded-[20px] flex items-center justify-center transition-all duration-500 ease-spring group overflow-hidden",
                   "hover:scale-125 hover:-translate-y-2 transform-gpu",
                   activeTab === item.id 
-                    ? "bg-white/20 backdrop-blur-sm border border-white/20 shadow-glass" 
-                    : "hover:bg-white/10 hover:backdrop-blur-sm hover:border-white/10"
+                    ? "bg-white/30 backdrop-blur-sm border border-white/40 shadow-glass shadow-black/10" 
+                    : "hover:bg-white/20 hover:backdrop-blur-sm hover:border-white/25"
                 )}
                 onClick={() => onTabChange(item.id)}
               >
